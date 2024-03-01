@@ -1,0 +1,23 @@
+def addition(a, b):
+    return a + b
+
+def soustraction(a, b):
+    return a - b
+
+def multiplication(a, b):
+    return a * b
+
+def division(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Erreur: Division par zéro"
+
+# Exemples d'utilisation
+a = float(input("Entrez le premier nombre : "))
+b = float(input("Entrez le deuxième nombre : "))
+
+print("Addition:", addition(a, b))
+print("Soustraction:", soustraction(a, b))
+print("Multiplication:", multiplication(a, b))
+print("Division:", division(a, b))
