@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <form method="post" action="">
+        <label for="num1">Nombre 1:</label>
+        <input type="text" name="num1" id="num1" required>
+
+        <label for="num2">Nombre 2:</label>
+        <input type="text" name="num2" id="num2" required>
+
+        <input type="submit" value="Addition" name="operation">
+        <input type="submit" value="Soustraction" name="operation">
+        <input type="submit" value="Multiplication" name="operation">
+        <input type="submit" value="Division" name="operation">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $num1 = $_POST["num1"];
+        $num2 = $_POST["num2"];
+        $operation = $_POST["operation"];
+
+        switch ($operation) {
+            case "Addition":
+                echo "Résultat: " . ($num1 + $num2);
+                break;
+            case "Soustraction":
+                echo "Résultat: " . ($num1 - $num2);
+                break;
+            case "Multiplication":
+                echo "Résultat: " . ($num1 * $num2);
+                break;
+            case "Division":
+                if ($num2 != 0) {
+                    echo "Résultat: " . ($num1 / $num2);
+                } else {
+                    echo "Erreur: Division par zéro";
+                }
+                break;
+        }
+    }
+    ?>
+</body>
+</html>
