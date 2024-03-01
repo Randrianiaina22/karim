@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <label for="num1">Nombre 1:</label>
+    <input type="text" id="num1">
+
+    <label for="num2">Nombre 2:</label>
+    <input type="text" id="num2">
+
+    <button onclick="calculate('add')">Addition</button>
+    <button onclick="calculate('subtract')">Soustraction</button>
+    <button onclick="calculate('multiply')">Multiplication</button>
+    <button onclick="calculate('divide')">Division</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculate(operation) {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var resultElement = document.getElementById('result');
+
+            switch (operation) {
+                case 'add':
+                    resultElement.textContent = 'Résultat: ' + (num1 + num2);
+                    break;
+                case 'subtract':
+                    resultElement.textContent = 'Résultat: ' + (num1 - num2);
+                    break;
+                case 'multiply':
+                    resultElement.textContent = 'Résultat: ' + (num1 * num2);
+                    break;
+                case 'divide':
+                    if (num2 !== 0) {
+                        resultElement.textContent = 'Résultat: ' + (num1 / num2);
+                    } else {
+                        resultElement.textContent = 'Erreur: Division par zéro';
+                    }
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
